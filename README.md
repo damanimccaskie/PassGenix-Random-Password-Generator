@@ -1,0 +1,1 @@
+Welcome to PassGenix, the smart and reliable tool that helps you create strong and secure passwords. You can also check how robust your passwords are with our password strength tool, and get tips on how to improve them.
