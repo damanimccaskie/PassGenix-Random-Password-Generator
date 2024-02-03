@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block title %}About{% endblock %} {% block content
+%}
+<div
+  class="container mt-5 main-container d-flex flex-column align-items-center"
+>
+  <h3 class="display-5 fw-bold text-center text-white">
+    About Pass<span class="orange-text">Genix</span>
+  </h3>
+  <div class="guidelines-container text-dark mt-5 mb-3 p-3">
+    <p class="lead fw-bold text-center">
+      Guidelines for creating the best password:
+    </p>
+    <ul>
+      <li>
+        Be at least 12 characters long but 14 or more is generally better.
+      </li>
+      <li>
+        Include a mix of uppercase letters, lowercase letters, numbers and
+        special characters.
+      </li>
+      <li>
+        Avoid using common words such as names, birthdates or common words found
+        in dictionaries.
+      </li>
+      <li>
+        Use a combination of random characters to make the password less
+        predictable.
+      </li>
+      <li>
+        Avoid password information such as your username, email address, name or
+        any publicly available about yourself.
+      </li>
+      <li>Avoid common patterns for example “123456” or “qwerty”.</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

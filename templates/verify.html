@@ -1,37 +1,37 @@
 {% extends 'base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Verify Password{% endblock %}
 
 {% block content %}
       <div
         class="container mt-5 main-container d-flex flex-column align-items-center"
       >
         <h3 class="display-5 fw-bold text-center text-white">
-          Generate Your <span class="orange-text">Password</span> Below
+          Verify Your <span class="orange-text">Password</span> Below
         </h3>
         <form
-          action="{{ url_for('home') }}"
-          method="GET"
+          action="{{ url_for('verify') }}"
+          method="POST"
           class="w-100 d-flex flex-column justify-content-center align-items-center"
         >
           <input
             type="text"
             class="form-control border-0 mt-2"
+            name="password"
             value="{{ password }}"
           />
           <div class="d-grid gap-2 d-md-block mt-4">
-            <button
-              class="btn btn-light border-0 fw-bold"
-              type="button"
-              id="copy-btn"
-            >
-              Copy
-            </button>
             <button class="btn btn-light border-0 generate-btn" type="submit">
-              Generate
+              Verify
             </button>
           </div>
         </form>
+        {% if result != None %}
+        <div class="result-container mt-5 p-3 text-white d-flex justify-content-center align-items-center">
+            <p class="m-0 p-0 fw-bold">{{ result }}</p>
+        </div>
+        {% endif %}
+  
         <div class="guidelines-container text-dark mt-5 mb-3 p-3">
           <p class="lead fw-bold text-center">
             Guidelines for creating the best password:

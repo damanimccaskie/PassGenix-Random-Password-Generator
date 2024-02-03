@@ -18,6 +18,25 @@ def home():
 
     return render_template('home.html', password=password)
 
+@app.route('/verify', methods=['GET', 'POST'])
+def verify():
+    if request.method == "POST":
+        password = request.form['password']
+        if verify_password(password):
+            return render_template('verify.html', password=password, result="Valid Password!")
+        else:
+            return render_template('verify.html', password=password, result="Invalid Password!")
+
+    return render_template('verify.html', password=None, result=None)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 
 def generate_password():
     current_password_length = 0
@@ -43,6 +62,21 @@ def generate_password():
     shuffled_password = ''.join(random.sample(password, len(password)))
 
     return shuffled_password
+
+def verify_password(password):
+    if check_length(password) and check_contains_required_characters(password):
+        return True
+    return False
+
+
+def check_length(password):
+    return len(password) >= MIN_PASSWORD_LENGTH
+
+def check_contains_required_characters(password):
+    if any(substring in password for substring in UPPERCASE_LETTERS) and any(substring in password for substring in LOWERCASE_LETTERS) and any(str(substring) in password for substring in NUMBERS) and any(substring in password for substring in SPECIAL_CHARACTERS):
+        return True
+    return False
+
 
 
 generated_password = generate_password()
